@@ -1,0 +1,54 @@
+auto lo
+iface lo inet loopback
+  dns-search cord.lab
+  dns-nameservers 192.168.121.113
+
+auto eth0
+iface eth0 inet manual
+  mtu 1500
+
+# Primary management interface
+auto eth1
+iface eth1 inet manual
+  bond-master mgmtbond
+  bond-primary eth1
+
+# Primary fabric interface
+auto eth2
+iface eth2 inet manual
+  bond-master fabric
+  bond-primary eth2
+
+# Internal POD management bond
+auto mgmtbond
+iface mgmtbond inet manual
+  bond-miimon 100
+  bond-slaves none
+  bond-mode active-backup
+
+# Veth interfaces for VTN app
+auto veth3
+iface veth3 inet static
+  address 0.0.0.0
+  pre-up /sbin/ip link add name veth3 type veth peer name veth2
+  pre-up /sbin/ip link set veth2 up
+  pre-up /sbin/brctl addif mgmtbr veth2
+  pre-down /sbin/brctl delif mgmtbr veth2
+  post-down /sbin/ip link del veth2
+
+# Leaf - Spine bonded fabric interface
+auto fabric
+iface fabric inet static
+  address 10.6.1.2
+  network 10.6.1.0
+  netmask 255.255.255.0
+  broadcast 10.6.1.255
+  bond-miimon 100
+  bond-slaves none
+  bond-mode active-backup
+
+# Internal POD management bridge
+auto mgmtbr
+iface mgmtbr inet dhcp
+  bridge_ports mgmtbond veth2
+

@@ -1,0 +1,44 @@
+onos> netcfg
+{
+  "devices" : { },
+  "links" : { },
+  "ports" : { },
+  "apps" : {
+    "org.opencord.vtn" : {
+      "cordvtn" : {
+        "controllers" : [ "10.1.0.1:6654" ],
+        "localManagementIp" : "172.27.0.1/24",
+        "nodes" : [ {
+          "bridgeId" : "of:0000525400EBDE83",
+          "dataPlaneIntf" : "fabric",
+          "dataPlaneIp" : "10.6.1.2/24",
+          "hostManagementIp" : "10.1.0.14/24",
+          "hostname" : "round-sister"
+        } ],
+        "openstack" : {
+          "endpoint" : "https://keystone.cord.lab:5000/v2.0",
+          "password" : "KZX46xJ07MHDmme0MnqU",
+          "tenant" : "admin",
+          "user" : "admin"
+        },
+        "ovsdbPort" : 6641,
+        "privateGatewayMac" : "00:00:00:00:00:01",
+        "publicGateways" : [ ],
+        "ssh" : {
+          "sshKeyFile" : "/root/node_key",
+          "sshPort" : 22,
+          "sshUser" : "root"
+        },
+        "xos" : {
+          "endpoint" : "xos-chameleon.cord.lab:9101",
+          "password" : "Cb4R1vJ2wIU38pZQFtgo",
+          "user" : "xosadmin@opencord.org"
+        }
+      }
+    }
+  },
+  "regions" : { },
+  "layouts" : { },
+  "hosts" : { }
+}
+onos> 

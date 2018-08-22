@@ -1,0 +1,53 @@
+
+tosca_definitions_version: tosca_simple_yaml_1_0
+
+imports:
+   - custom_types/xos.yaml
+
+description: Configures the VTN ONOS service
+
+topology_template:
+  node_templates:
+
+    service#ONOS_CORD:
+      type: tosca.nodes.ONOSService
+      requirements:
+      properties:
+          kind: onos
+          view_url: /admin/onos/onosservice/$id$/
+          no_container: true
+          rest_hostname: onos-cord.cord.lab
+          rest_port: 8182
+          replaces: service_ONOS_CORD
+
+    service#vtn:
+      type: tosca.nodes.VTNService
+      properties:
+          view_url: /admin/vtn/vtnservice/$id$/
+          privateGatewayMac: 00:00:00:00:00:01
+          localManagementIp: 172.27.0.1/24
+          ovsdbPort: 6641
+          sshUser: root
+          sshKeyFile: /root/node_key
+          sshPort: 22
+          xosEndpoint: xos-chameleon.cord.lab:9101
+          xosUser: xosadmin@opencord.org
+          xosPassword: Cb4R1vJ2wIU38pZQFtgo
+          replaces: service_vtn
+          vtnAPIVersion: 2
+          controllerPort: onos-cord.cord.lab:6654
+
+    VTN_ONOS_app:
+      type: tosca.nodes.ONOSVTNApp
+      requirements:
+          - onos_tenant:
+              node: service#ONOS_CORD
+              relationship: tosca.relationships.TenantOfService
+          - vtn_service:
+              node: service#vtn
+              relationship: tosca.relationships.UsedByService
+      properties:
+          install_dependencies: http://192.168.107.107:8080/cord-config-1.4.0.oar,http://192.168.107.107:8080/vtn-1.6.0.oar 
+          dependencies: org.onosproject.drivers, org.onosproject.drivers.ovsdb, org.onosproject.openflow-base, org.onosproject.ovsdb-base, org.onosproject.dhcp
+          autogenerate: vtn-network-cfg
+

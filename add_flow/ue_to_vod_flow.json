@@ -1,0 +1,33 @@
+{ "flows": [
+     { 
+       "priority": 6000, 
+       "isPermanent": true, 
+       "deviceId": "of:0000525400ebde83",
+       "tableId": 1,
+        "treatment": { 
+           "instructions": [ 
+           { 
+             "type": "OUTPUT", 
+             "port": "11" 
+           } 
+         ] 
+       }, 
+         "selector": { 
+           "criteria": [ 
+           {
+             "type": "IN_PORT",
+             "port": "7"
+           },
+           {
+             "type": "ETH_TYPE",
+             "ethType": "0x0800"
+           },
+           { 
+             "type": "IPV4_SRC", 
+             "ip": "10.100.0.10/24" 
+           }, 
+         ] 
+       } 
+     } 
+   ] 
+ }

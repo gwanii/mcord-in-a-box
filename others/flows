@@ -1,0 +1,18 @@
+NXST_FLOW reply (xid=0x4):
+ cookie=0xaa00006446c618, duration=1230.279s, table=0, n_packets=0, n_bytes=0, idle_age=1230, priority=50000,arp,in_port=2,arp_tpa=10.6.1.2 actions=LOCAL
+ cookie=0xaa0000e7285569, duration=1230.279s, table=0, n_packets=0, n_bytes=0, idle_age=1230, priority=50000,ip,in_port=2,nw_dst=10.6.1.2 actions=LOCAL
+ cookie=0x100001374b545, duration=1232.858s, table=0, n_packets=6, n_bytes=1794, idle_age=507, priority=40000,udp,tp_src=68,tp_dst=67 actions=CONTROLLER:65535
+ cookie=0xaa00006ce8ca4b, duration=1230.306s, table=0, n_packets=0, n_bytes=0, idle_age=1230, priority=50000,udp,in_port=2,tp_dst=4789 actions=LOCAL
+ cookie=0xaa0000ca30b502, duration=1230.275s, table=0, n_packets=0, n_bytes=0, idle_age=1230, priority=0 actions=drop
+ cookie=0xaa000000a51df1, duration=1230.304s, table=0, n_packets=7, n_bytes=558, idle_age=1221, priority=50000,in_port=LOCAL actions=output:2
+ cookie=0xaa000013c984a7, duration=1230.279s, table=0, n_packets=0, n_bytes=0, idle_age=1230, priority=55000,ip,nw_dst=172.27.0.1 actions=LOCAL
+ cookie=0xaa0000efef13f6, duration=1230.275s, table=0, n_packets=0, n_bytes=0, idle_age=1230, priority=55000,arp,arp_tpa=172.27.0.1 actions=LOCAL
+ cookie=0xaa0000bea653f9, duration=1230.270s, table=0, n_packets=0, n_bytes=0, idle_age=1230, priority=55000,vlan_tci=0x1000/0x1000 actions=drop
+ cookie=0xaa0000522fe588, duration=1230.279s, table=0, n_packets=0, n_bytes=0, idle_age=1230, priority=55000,arp,in_port=LOCAL,arp_spa=172.27.0.1 actions=CONTROLLER:65535
+ cookie=0xaa0000f42002d3, duration=1230.279s, table=0, n_packets=0, n_bytes=0, idle_age=1230, priority=55000,ip,in_port=LOCAL,nw_src=172.27.0.1 actions=drop
+ cookie=0x1000023f5d905, duration=1232.856s, table=0, n_packets=0, n_bytes=0, idle_age=1232, priority=40000,arp actions=CONTROLLER:65535
+ cookie=0xaa00008213723f, duration=1230.274s, table=1, n_packets=0, n_bytes=0, idle_age=1230, priority=5000,in_port=1 actions=drop
+ cookie=0xaa000050f3a062, duration=1230.272s, table=1, n_packets=0, n_bytes=0, idle_age=1230, priority=5000,in_port=2 actions=drop
+ cookie=0xaa00008159d6b7, duration=1230.273s, table=2, n_packets=0, n_bytes=0, idle_age=1230, priority=0 actions=output:2
+ cookie=0xaa000091bd994c, duration=1230.271s, table=6, n_packets=0, n_bytes=0, idle_age=1230, priority=50000,arp,dl_vlan=500 actions=CONTROLLER:65535
+ cookie=0xaa0000a4fb2d5b, duration=1230.271s, table=6, n_packets=0, n_bytes=0, idle_age=1230, priority=5000,dl_vlan=500 actions=strip_vlan,output:2

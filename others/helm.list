@@ -1,0 +1,28 @@
+hbgg@node:~$ helm list
+NAME                    REVISION        UPDATED                         STATUS          CHART                           NAMESPACE  
+base-openstack          1               Mon Aug 20 03:15:22 2018        DEPLOYED        base-openstack-0.1.0            default    
+calico                  1               Mon Aug 20 02:42:06 2018        DEPLOYED        calico-0.1.0                    kube-system
+ceph-client             1               Mon Aug 20 02:54:32 2018        DEPLOYED        ceph-client-0.1.0               ceph       
+ceph-mon                1               Mon Aug 20 02:49:33 2018        DEPLOYED        ceph-mon-0.1.0                  ceph       
+ceph-openstack-config   1               Mon Aug 20 02:57:39 2018        DEPLOYED        ceph-client-0.1.0               openstack  
+ceph-osd                1               Mon Aug 20 02:52:49 2018        DEPLOYED        ceph-osd-0.1.0                  ceph       
+glance                  1               Mon Aug 20 03:06:06 2018        DEPLOYED        glance-0.1.0                    openstack  
+heat                    1               Mon Aug 20 03:03:11 2018        DEPLOYED        heat-0.1.0                      openstack  
+ingress-ceph            1               Mon Aug 20 02:49:24 2018        DEPLOYED        ingress-0.1.0                   ceph       
+ingress-kube-system     1               Mon Aug 20 02:48:42 2018        DEPLOYED        ingress-0.1.0                   kube-system
+ingress-openstack       1               Mon Aug 20 02:49:09 2018        DEPLOYED        ingress-0.1.0                   openstack  
+keystone                1               Mon Aug 20 03:00:20 2018        DEPLOYED        keystone-0.1.0                  openstack  
+kube-dns                1               Mon Aug 20 02:47:09 2018        DEPLOYED        kube-dns-0.1.0                  kube-system
+libvirt                 1               Mon Aug 20 03:08:59 2018        DEPLOYED        libvirt-0.1.0                   openstack  
+local-persistent-volume 1               Mon Aug 20 03:13:36 2018        DEPLOYED        local-persistent-volume-1.0.0   default    
+mariadb                 1               Mon Aug 20 02:57:49 2018        DEPLOYED        mariadb-0.1.0                   openstack  
+mcord                   1               Mon Aug 20 03:18:17 2018        DEPLOYED        mcord-0.1.0                     default    
+memcached               1               Mon Aug 20 03:00:05 2018        DEPLOYED        memcached-0.1.0                 openstack  
+neutron                 1               Mon Aug 20 03:09:06 2018        DEPLOYED        neutron-0.1.0                   openstack  
+nova                    1               Mon Aug 20 03:09:02 2018        DEPLOYED        nova-0.1.0                      openstack  
+onos-cord               1               Mon Aug 20 03:17:51 2018        DEPLOYED        onos-0.1.0                      default    
+openvswitch             1               Mon Aug 20 03:08:30 2018        DEPLOYED        openvswitch-0.1.0               openstack  
+rabbitmq                1               Mon Aug 20 02:59:19 2018        DEPLOYED        rabbitmq-0.1.0                  openstack  
+radosgw-openstack       1               Mon Aug 20 03:04:57 2018        DEPLOYED        ceph-client-0.1.0               openstack  
+tiller                  1               Mon Aug 20 02:47:35 2018        DEPLOYED        tiller-0.1.0                    kube-system
+xos-core                1               Mon Aug 20 03:13:36 2018        DEPLOYED        xos-core-2.0.0                  default    

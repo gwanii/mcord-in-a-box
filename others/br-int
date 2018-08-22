@@ -1,0 +1,14 @@
+37430033-c645-4d40-bf27-b743b9e93dbf
+    Bridge br-int
+        Controller "tcp:10.1.0.1:6654"
+            is_connected: true
+        fail_mode: secure
+        Port fabric
+            Interface fabric
+        Port br-int
+            Interface br-int
+        Port vxlan
+            Interface vxlan
+                type: vxlan
+                options: {key=flow, remote_ip=flow}
+    ovs_version: "2.3.2"

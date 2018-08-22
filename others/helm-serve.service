@@ -1,0 +1,11 @@
+[Unit]
+Description=Helm Server
+After=network.target
+
+[Service]
+User=bbbb
+Restart=always
+ExecStart=/usr/bin/helm serve
+
+[Install]
+WantedBy=multi-user.target

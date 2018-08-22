@@ -1,0 +1,49 @@
+#!/bin/bash
+# grep xos /etc/apache2/conf-available/cord-http.conf|awk {print }|grep -v "ws://" > xos_api_check.sh
+(
+curl -s -o /dev/null -w "%{http_code} %{url_effective}\n" http://xos-gui:4000
+curl -s -o /dev/null -w "%{http_code} %{url_effective}\n" http://xos-ws:3000/socket.io
+curl -s -o /dev/null -w "%{http_code} %{url_effective}\n" http://xos-ws:3000/socket.io
+curl -s -o /dev/null -w "%{http_code} %{url_effective}\n" http://xos-chameleon:9101/apidocs/
+curl -s -o /dev/null -w "%{http_code} %{url_effective}\n" http://xos-chameleon:9101/apidocs/v1/swagger.json
+curl -s -o /dev/null -w "%{http_code} %{url_effective}\n" http://xos-tosca:9102
+curl -s -o /dev/null -w "%{http_code} %{url_effective}\n" http://xos:5601/app/kibana
+curl -s -o /dev/null -w "%{http_code} %{url_effective}\n" http://xos:5601/app/kibana
+curl -s -o /dev/null -w "%{http_code} %{url_effective}\n" http://xos:5601/app/timelion
+curl -s -o /dev/null -w "%{http_code} %{url_effective}\n" http://xos:5601/app/timelion
+curl -s -o /dev/null -w "%{http_code} %{url_effective}\n" http://xos:5601/bundles
+curl -s -o /dev/null -w "%{http_code} %{url_effective}\n" http://xos:5601/bundles
+curl -s -o /dev/null -w "%{http_code} %{url_effective}\n" http://xos:9200
+curl -s -o /dev/null -w "%{http_code} %{url_effective}\n" http://xos:9200
+curl -s -o /dev/null -w "%{http_code} %{url_effective}\n" http://xos:5601/status
+curl -s -o /dev/null -w "%{http_code} %{url_effective}\n" http://xos:5601/api/status
+curl -s -o /dev/null -w "%{http_code} %{url_effective}\n" http://xos:5601/api/status
+curl -s -o /dev/null -w "%{http_code} %{url_effective}\n" http://xos:5601/api/saved_objects
+curl -s -o /dev/null -w "%{http_code} %{url_effective}\n" http://xos:5601/api/saved_objects
+curl -s -o /dev/null -w "%{http_code} %{url_effective}\n" http://xos:5601/api/console
+curl -s -o /dev/null -w "%{http_code} %{url_effective}\n" http://xos:5601/api/console
+curl -s -o /dev/null -w "%{http_code} %{url_effective}\n" http://xos:5601/api/timelion/run
+curl -s -o /dev/null -w "%{http_code} %{url_effective}\n" http://xos:5601/api/timelion/run
+curl -s -o /dev/null -w "%{http_code} %{url_effective}\n" http://xos:5601/api/timelion/functions
+curl -s -o /dev/null -w "%{http_code} %{url_effective}\n" http://xos:5601/api/timelion/functions
+curl -s -o /dev/null -w "%{http_code} %{url_effective}\n" http://xos:5601/plugins/kibana/
+curl -s -o /dev/null -w "%{http_code} %{url_effective}\n" http://xos:5601/plugins/kibana/
+curl -s -o /dev/null -w "%{http_code} %{url_effective}\n" http://xos:5601/plugins/timelion/
+curl -s -o /dev/null -w "%{http_code} %{url_effective}\n" http://xos:5601/plugins/timelion/
+curl -s -o /dev/null -w "%{http_code} %{url_effective}\n" http://xos:5601/app/sense
+curl -s -o /dev/null -w "%{http_code} %{url_effective}\n" http://xos:5601/app/sense
+curl -s -o /dev/null -w "%{http_code} %{url_effective}\n" http://xos:5601/ui/fonts/open_sans/
+curl -s -o /dev/null -w "%{http_code} %{url_effective}\n" http://xos:5601/ui/fonts/open_sans/
+curl -s -o /dev/null -w "%{http_code} %{url_effective}\n" http://xos:5601/es_admin/
+curl -s -o /dev/null -w "%{http_code} %{url_effective}\n" http://xos:5601/es_admin/
+curl -s -o /dev/null -w "%{http_code} %{url_effective}\n" http://xos:9000
+curl -s -o /dev/null -w "%{http_code} %{url_effective}\n" http://xos:9000/
+curl -s -o /dev/null -w "%{http_code} %{url_effective}\n" http://xos:9000/$1/
+curl -s -o /dev/null -w "%{http_code} %{url_effective}\n" http://xos:9000/api/
+curl -s -o /dev/null -w "%{http_code} %{url_effective}\n" http://xos:9000/login
+curl -s -o /dev/null -w "%{http_code} %{url_effective}\n" http://xos:9000/admin/
+curl -s -o /dev/null -w "%{http_code} %{url_effective}\n" http://xos:9000/static/
+curl -s -o /dev/null -w "%{http_code} %{url_effective}\n" http://xos:9000/loggedin/
+curl -s -o /dev/null -w "%{http_code} %{url_effective}\n" http://xos:9000/serviceGrid/
+curl -s -o /dev/null -w "%{http_code} %{url_effective}\n" http://xos-chameleon:9101/xosapi/
+) >> ./xos_api_check_result

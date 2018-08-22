@@ -1,0 +1,31 @@
+onos> cordvtn-nodes
+Hostname                      Management IP       Data IP             Data Iface     Br-int                  State
+round-sister                  10.1.0.14/24        10.6.1.2/24         fabric         of:0000525400ebde83     COMPLETE
+Total 1 nodes
+onos> devices
+id=of:0000525400ebde83, available=true, local-status=connected 19m15s ago, role=MASTER, type=SWITCH, mfr=Nicira, Inc., hw=Open vSwitch, sw=2.3.2, serial=None, chassis=525400ebde83, driver=ovs, channelId=10.1.0.14:39902, managementAddress=10.1.0.14, protocol=OF_13
+onos> ports
+id=of:0000525400ebde83, available=true, local-status=connected 19m16s ago, role=MASTER, type=SWITCH, mfr=Nicira, Inc., hw=Open vSwitch, sw=2.3.2, serial=None, chassis=525400ebde83, driver=ovs, channelId=10.1.0.14:39902, managementAddress=10.1.0.14, protocol=OF_13
+  port=LOCAL, state=enabled, type=copper, speed=0 , adminState=enabled, portMac=0e:1a:17:d7:4d:41, portName=br-int
+  port=1, state=enabled, type=copper, speed=0 , adminState=enabled, portMac=a2:8d:6f:34:8e:66, portName=vxlan
+  port=2, state=enabled, type=copper, speed=0 , adminState=enabled, portMac=52:54:00:eb:de:83, portName=fabric
+onos> flows -s
+deviceId=of:0000525400ebde83, flowRuleCount=17
+    ADDED, bytes=0, packets=0, table=0, priority=55000, selector=[ETH_TYPE:ipv4, IPV4_DST:172.27.0.1/32], treatment=[immediate=[OUTPUT:LOCAL]]
+    ADDED, bytes=0, packets=0, table=0, priority=55000, selector=[IN_PORT:LOCAL, ETH_TYPE:arp, ARP_SPA:172.27.0.1], treatment=[immediate=[OUTPUT:CONTROLLER]]
+    ADDED, bytes=0, packets=0, table=0, priority=55000, selector=[VLAN_VID:Any], treatment=[transition=TABLE:6]
+    ADDED, bytes=0, packets=0, table=0, priority=55000, selector=[ETH_TYPE:arp, ARP_TPA:172.27.0.1], treatment=[immediate=[OUTPUT:LOCAL]]
+    ADDED, bytes=0, packets=0, table=0, priority=55000, selector=[IN_PORT:LOCAL, ETH_TYPE:ipv4, IPV4_SRC:172.27.0.1/32], treatment=[transition=TABLE:4]
+    ADDED, bytes=558, packets=7, table=0, priority=50000, selector=[IN_PORT:LOCAL], treatment=[immediate=[OUTPUT:2]]
+    ADDED, bytes=0, packets=0, table=0, priority=50000, selector=[IN_PORT:2, ETH_TYPE:arp, ARP_TPA:10.6.1.2], treatment=[immediate=[OUTPUT:LOCAL]]
+    ADDED, bytes=0, packets=0, table=0, priority=50000, selector=[IN_PORT:2, ETH_TYPE:ipv4, IP_PROTO:17, UDP_DST:4789], treatment=[immediate=[OUTPUT:LOCAL]]
+    ADDED, bytes=0, packets=0, table=0, priority=50000, selector=[IN_PORT:2, ETH_TYPE:ipv4, IPV4_DST:10.6.1.2/32], treatment=[immediate=[OUTPUT:LOCAL]]
+    ADDED, bytes=1794, packets=6, table=0, priority=40000, selector=[ETH_TYPE:ipv4, IP_PROTO:17, UDP_SRC:68, UDP_DST:67], treatment=[immediate=[OUTPUT:CONTROLLER], clearDeferred]
+    ADDED, bytes=0, packets=0, table=0, priority=40000, selector=[ETH_TYPE:arp], treatment=[immediate=[OUTPUT:CONTROLLER], clearDeferred]
+    ADDED, bytes=0, packets=0, table=0, priority=0, selector=[], treatment=[transition=TABLE:1]
+    ADDED, bytes=0, packets=0, table=1, priority=5000, selector=[IN_PORT:2], treatment=[transition=TABLE:4]
+    ADDED, bytes=0, packets=0, table=1, priority=5000, selector=[IN_PORT:1], treatment=[transition=TABLE:5]
+    ADDED, bytes=0, packets=0, table=2, priority=0, selector=[], treatment=[immediate=[OUTPUT:2]]
+    ADDED, bytes=0, packets=0, table=6, priority=50000, selector=[ETH_TYPE:arp, VLAN_VID:500], treatment=[immediate=[OUTPUT:CONTROLLER]]
+    ADDED, bytes=0, packets=0, table=6, priority=5000, selector=[VLAN_VID:500], treatment=[immediate=[VLAN_POP, OUTPUT:2]]
+onos> 
