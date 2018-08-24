@@ -16,4 +16,11 @@ ip netns exec ns1 ifconfig veth2 hw ether fa:16:3e:67:a5:fa  # change vs1u mac t
 ip netns exec ns1 ifconfig veth4 hw ether fa:16:3e:26:d3:86  # change vsgi mac to sgi mac
 EOF
 
+# on vodapp vm
+ip route add 10.100.0.0/24 via 118.0.0.2 dev eth0
+
 # test ping from ue to vod
+
+# install vod, must without management nic of vod vm
+# ssh root@epc-u  (without mangement nic, log in from epc-u vm)
+# ssh ip netns exec ns1 ssh root@118.0.0.4  (vod' ip at app network)

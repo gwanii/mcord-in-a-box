@@ -14,8 +14,8 @@ ssh -L 0.0.0.0:8000:head1:80 head1
 #  - password: ssh head1; cat /opt/credentials/xosadmin@opencord.org
 # OpenStack: /opt/cord_profile/admin-openrc.sh
 # ONOS:
-#   - http://ciab:8000/fabric/onos;  onos/rocks ; "apps -a -s", "app activate/deactivate org.opencord.vtn"
-#   - http://ciab:8000/vtn/onos;  onos/rocks
+#   - http://ciab:8000/fabric;  onos/rocks ; "apps -a -s", "app activate/deactivate org.opencord.vtn"
+#   - http://ciab:8000/vtn;  onos/rocks
 
 ### Apache configuration:
 # ssh head1; /etc/apache2/conf-available/cord-http.conf
