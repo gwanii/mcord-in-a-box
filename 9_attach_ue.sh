@@ -10,11 +10,10 @@ arp -s 116.0.0.130 00:00:00:02:0a:67
 
 # on epc-u vm
 ssh epc-u
-cat <<EOF >> /usr/local/bin/ovs-init.sh
-ip netns exec ns1 arp -s 116.0.0.130 00:00:00:02:0a:67
 ip netns exec ns1 ifconfig veth2 hw ether fa:16:3e:67:a5:fa  # change vs1u mac to s1u mac
 ip netns exec ns1 ifconfig veth4 hw ether fa:16:3e:26:d3:86  # change vsgi mac to sgi mac
-EOF
+# static arp should be added after mac address change
+ip netns exec ns1 arp -s 116.0.0.130 00:00:00:02:0a:67
 
 # on vodapp vm
 ip route add 10.100.0.0/24 via 118.0.0.2 dev eth0
