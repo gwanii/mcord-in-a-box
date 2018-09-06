@@ -60,11 +60,19 @@ show_var() {
   echo_v ue_ipv4_net
   echo_v compute_node_ip
 
-  sgi_port_no=$(get_vm_portno "$vm_epc_u" "$sgi_net")
+  s1u_ip=$(get_vm_ip "$vm_epc_u" "$s1u_net")
+  s1u_mac=$(get_vm_mac_by_ip "$s1u_ip")
+  echo_v s1u_mac
+  sgi_ip=$(get_vm_ip "$vm_epc_u" "$sgi_net")
+  echo_v sgi_ip
+  sgi_mac=$(get_vm_mac_by_ip "$sgi_ip")
+  echo_v sgi_mac
+  sgi_port_no=$(get_vm_portno_by_mac "$sgi_mac")
   echo_v sgi_port_no
   vod_ip=$(get_vm_ip "$vm_vod" "$sgi_net")
   echo_v vod_ip
-  vod_port_no=$(get_vm_portno "$vm_vod" "$sgi_net")
+  vod_mac=$(get_vm_mac_by_ip "$vm_ip")
+  vod_port_no=$(get_vm_portno_by_mac "$vod_mac")
   echo_v vod_port_no
   fabric_port_no=$(get_portno_by_name "$fabric_port_name")
   echo_v fabric_port_no
@@ -78,6 +86,7 @@ onboard_var() {
   sed -i -e"s#%DEVICE_ID%#$compute_device_id#g" -e"s#%ENODEB_MAC%#$enodeb_mac#g" -e"s#%ENODEB_IP%#$enodeb_ip#g" -e"s#%FABRIC_PORT_NO%#$fabric_port_no#g" ./s1mme_to_enb_flow.json
   sed -i -e"s#%DEVICE_ID%#$compute_device_id#g" -e"s#%SGI_PORT_NO%#$sgi_port_no#g" -e"s#%UE_IPV4_NET%#$ue_ipv4_net#g" ./vod_to_ue_flow.json
   sed -i -e"s#%DEVICE_ID%#$compute_device_id#g" -e"s#%SGI_PORT_NO%#$sgi_port_no#g" -e"s#%VOD_PORT_NO%#$vod_port_no#g" -e"s#%VOD_IP%#$vod_ip#g" -e"s#%UE_IPV4_NET%#$ue_ipv4_net#g" ./ue_to_vod_flow.json
+  sed -i -e"s#%ENODEB_IP%#$enodeb_ip#g" -e"s#%ENODEB_MAC%#$enodeb_mac#g" -e"s#%S1U_MAC%#$s1u_mac#g" -e"s#%SGI_IP%#$sgi_ip#g" -e"s#%SGI_MAC%#$sgi_mac#g" -e"s#%UE_IPV4_NET%#$ue_ipv4_net#g" persist_network_config.txt
 }
 
 main() {
