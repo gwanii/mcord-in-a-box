@@ -24,7 +24,7 @@
            },
            { 
              "type": "IPV4_SRC", 
-             "ip": "%VOD_IP%"
+             "ip": "%VOD_IP%/32"
            },
            { 
              "type": "IPV4_DST", 
