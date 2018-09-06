@@ -2,7 +2,7 @@
      { 
        "priority": 6000, 
        "isPermanent": true, 
-       "deviceId": "of:%DEVICE_ID%",
+       "deviceId": "%DEVICE_ID%",
        "tableId": 1,
         "treatment": { 
            "instructions": [ 

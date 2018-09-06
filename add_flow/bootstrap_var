@@ -4,6 +4,6 @@ vm_epc_u=epc-u
 vm_vod=vodapp
 s1u_net=signaling
 sgi_net=app_network
-enodeb_ip=116.0.0.130/32
+enodeb_ip=116.0.0.130
 enodeb_mac=00:00:00:02:0a:67
 ue_ipv4_net=10.100.0.0/24

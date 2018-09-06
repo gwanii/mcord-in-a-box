@@ -2,7 +2,7 @@
      { 
        "priority": 5000, 
        "isPermanent": true, 
-       "deviceId": "of:%DEVICE_ID%",
+       "deviceId": "%DEVICE_ID%",
        "tableId": 4,
         "treatment": { 
            "instructions": [ 
@@ -25,7 +25,7 @@
            },
            { 
              "type": "IPV4_DST", 
-             "ip": "%ENODEB_IP%" 
+             "ip": "%ENODEB_IP%/32"
            } 
          ] 
        } 
