@@ -2,18 +2,18 @@
      { 
        "priority": 5000, 
        "isPermanent": true, 
-       "deviceId": "of:of:000052540076119c",
+       "deviceId": "of:%DEVICE_ID%",
        "tableId": 4,
         "treatment": { 
            "instructions": [ 
            {
      	     "type": "L2MODIFICATION",
              "subtype": "ETH_DST",
-             "mac": "00:00:00:02:0a:67"
+             "mac": "%ENODEB_MAC%"
            },
            { 
              "type": "OUTPUT", 
-             "port": "2" 
+             "port": "%FABRIC_PORT_NO%" 
            } 
          ] 
        }, 
@@ -25,7 +25,7 @@
            },
            { 
              "type": "IPV4_DST", 
-             "ip": "116.0.0.130/32" 
+             "ip": "%ENODEB_IP%" 
            } 
          ] 
        } 

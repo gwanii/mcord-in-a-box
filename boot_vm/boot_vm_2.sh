@@ -16,7 +16,7 @@ function bootvm {
 main() {
 bootvm epc-c m1.medium centos-7.2 "management|signaling|sx_network"
 bootvm epc-u m1.large centos-7.2 "management|signaling|sx_network|app_network"
-bootvm vodapp m1.large centos-7.2 "management|app_network"
+bootvm vodapp m1.large vod "app_network"
 nova list
 }
 

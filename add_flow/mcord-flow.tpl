@@ -2,8 +2,8 @@
 set -x
 flowdir=/home/ubuntu/add_flow
 logdir="$flowdir"
-enb_ip=
-ue_ipv4_net=10.100.0.0/24
+enb_ip=%ENODEB_IP%
+ue_ipv4_net=%UE_IPV4_NET%
 
 (test -d "$flowdir" && \
  test -r "$flowdir"/add_flow.sh && \

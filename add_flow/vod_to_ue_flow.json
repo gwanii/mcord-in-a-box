@@ -2,13 +2,13 @@
      { 
        "priority": 6000, 
        "isPermanent": true, 
-       "deviceId": "of:0000525400ebde83",
+       "deviceId": "of:of:000052540076119c",
        "tableId": 1,
         "treatment": { 
            "instructions": [ 
            { 
              "type": "OUTPUT", 
-             "port": "7" 
+             "port": "18" 
            } 
          ] 
        }, 
@@ -16,7 +16,7 @@
            "criteria": [ 
            {
              "type": "IN_PORT",
-             "port": "11"
+             "port": "%VOD_PORT_NO%"
            },
            {
              "type": "ETH_TYPE",
@@ -24,11 +24,11 @@
            },
            { 
              "type": "IPV4_SRC", 
-             "ip": "118.0.0.3/32"
+             "ip": "%VOD_IP%"
            },
            { 
              "type": "IPV4_DST", 
-             "ip": "10.100.0.10/24" 
+             "ip": "10.100.0.0/24" 
            } 
          ] 
        } 

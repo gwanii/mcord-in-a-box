@@ -1,33 +1,32 @@
 { "flows": [
      { 
-       "priority": 5000, 
+       "priority": 6000, 
        "isPermanent": true, 
-       "deviceId": "of:of:000052540076119c",
-       "tableId": 4,
+       "deviceId": "of:%DEVICE_ID%",
+       "tableId": 1,
         "treatment": { 
            "instructions": [ 
-           {
-     	     "type": "L2MODIFICATION",
-             "subtype": "ETH_DST",
-             "mac": "00:00:00:02:0a:67"
-           },
            { 
              "type": "OUTPUT", 
-             "port": "2" 
+             "port": "11" 
            } 
          ] 
        }, 
          "selector": { 
            "criteria": [ 
            {
+             "type": "IN_PORT",
+             "port": "%SGI_PORT_NO%"
+           },
+           {
              "type": "ETH_TYPE",
              "ethType": "0x0800"
            },
            { 
-             "type": "IPV4_DST", 
-             "ip": "116.0.0.130/32" 
-           } 
-         ] 
+             "type": "IPV4_SRC", 
+             "ip": "%UE_IPV4_NET%" 
+           }
+        ] 
        } 
      } 
    ] 
