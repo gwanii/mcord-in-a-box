@@ -8,7 +8,7 @@
            "instructions": [ 
            { 
              "type": "OUTPUT", 
-             "port": "11" 
+             "port": "%VOD_PORT_NO%"
            } 
          ] 
        }, 
