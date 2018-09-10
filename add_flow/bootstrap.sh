@@ -86,7 +86,7 @@ onboard_var() {
   sed -i -e"s#%DEVICE_ID%#$compute_device_id#g" -e"s#%ENODEB_MAC%#$enodeb_mac#g" -e"s#%ENODEB_IP%#$enodeb_ip#g" -e"s#%FABRIC_PORT_NO%#$fabric_port_no#g" ./s1mme_to_enb_flow.json
   sed -i -e"s#%DEVICE_ID%#$compute_device_id#g" -e"s#%VOD_PORT_NO%#$vod_port_no#g" -e"s#%SGI_PORT_NO%#$sgi_port_no#g" -e"s#%UE_IPV4_NET%#$ue_ipv4_net#g" ./ue_to_vod_flow.json
   sed -i -e"s#%DEVICE_ID%#$compute_device_id#g" -e"s#%SGI_PORT_NO%#$sgi_port_no#g" -e"s#%VOD_PORT_NO%#$vod_port_no#g" -e"s#%VOD_IP%#$vod_ip#g" -e"s#%UE_IPV4_NET%#$ue_ipv4_net#g" ./vod_to_ue_flow.json
-  sed -i -e"s#%ENODEB_IP%#$enodeb_ip#g" -e"s#%ENODEB_MAC%#$enodeb_mac#g" -e"s#%S1U_MAC%#$s1u_mac#g" -e"s#%SGI_IP%#$sgi_ip#g" -e"s#%SGI_MAC%#$sgi_mac#g" -e"s#%UE_IPV4_NET%#$ue_ipv4_net#g" persist_network_config.txt
+  sed -i -e"s#%ENODEB_IP%#$enodeb_ip#g" -e"s#%ENODEB_MAC%#$enodeb_mac#g" -e"s#%S1U_MAC%#$s1u_mac#g" -e"s#%SGI_IP%#$sgi_ip#g" -e"s#%SGI_MAC%#$sgi_mac#g" -e"s#%UE_IPV4_NET%#$ue_ipv4_net#g" -e"s#%VOD_NIC%#$vod_nic#g" persist_network_config.txt
   sed -i -e"s#%DEVICE_ID%#$compute_device_id#g" ./del_to_enb_flow.sh
 }
 

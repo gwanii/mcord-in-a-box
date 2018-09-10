@@ -7,3 +7,4 @@ sgi_net=app_network
 enodeb_ip=116.0.0.130
 enodeb_mac=00:00:00:02:0a:67
 ue_ipv4_net=10.100.0.0/24
+vod_nic=ens3
